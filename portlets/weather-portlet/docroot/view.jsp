@@ -21,15 +21,15 @@
 <table class="lfr-table">
 
 <%
-for (String zip : zips) {
-	Weather weather = WeatherUtil.getWeather(zip);
+for (int i = 0; i < zips.length; i++) {
+	Weather weather = WeatherUtil.getWeather(zips[i]);
 
-	if (weather != null) {
+	if ((weather != null) && (((i + 1) % 5) != 0)) {
 %>
 
 		<tr>
 			<td>
-				<a href="http://www.weather.com/search/enhancedlocalsearch?where=<%= HtmlUtil.escapeURL(weather.getZip()) %>" style="font-size: xx-small; font-weight: bold;" target="_blank"><%= HtmlUtil.escape(weather.getZip()) %></a>
+				<span style="font-size: xx-small; font-weight: bold;"><%= HtmlUtil.escape(weather.getZip()) %></span>
 			</td>
 			<td align="right">
 				<span style="font-size: xx-small;">
@@ -55,14 +55,6 @@ for (String zip : zips) {
 %>
 
 </table>
-
-<br />
-
-<liferay-ui:message key="city-or-zip-code" />
-
-<input name="where" size="23" type="text" />
-
-<input type="submit" value="<liferay-ui:message key="search" />" />
 
 </form>
 

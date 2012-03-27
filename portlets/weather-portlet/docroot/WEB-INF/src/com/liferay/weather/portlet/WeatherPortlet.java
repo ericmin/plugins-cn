@@ -19,6 +19,7 @@ import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 
 import java.io.IOException;
@@ -51,6 +52,10 @@ public class WeatherPortlet extends MVCPortlet {
 
 		if (!cmd.equals(Constants.UPDATE)) {
 			return;
+		}
+
+		if (Validator.isNull(ParamUtil.getString(actionRequest, "zips"))) {
+			throw new PortletException("All Your Base Are Belong To Us");
 		}
 
 		PortletPreferences preferences = actionRequest.getPreferences();
