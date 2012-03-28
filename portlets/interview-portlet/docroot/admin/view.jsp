@@ -18,4 +18,4 @@
 
 <portlet:defineObjects />
 
-This is the <b>Interview</b> portlet.
+This is the <b>Interview (Admin)</b> portlet.
