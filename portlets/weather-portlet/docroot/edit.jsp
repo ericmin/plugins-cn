@@ -50,7 +50,7 @@ zipsString = StringUtil.merge(zips, StringPool.NEW_LINE);
 
 </liferay-ui:error>
 
-<liferay-ui:message key="enter-one-city-or-zip-code-per-line" />
+Enter one city <b>per line</b>.
 
 <br /><br />
 
@@ -61,12 +61,12 @@ zipsString = StringUtil.merge(zips, StringPool.NEW_LINE);
 <table class="lfr-table">
 <tr>
 	<td>
-		<liferay-ui:message key="temperature-format" />
+		<liferay-ui:message key="weather-temperature-format" />
 	</td>
 	<td>
 		<select name="<portlet:namespace />fahrenheit">
 			<option <%= fahrenheit ? "selected" : "" %> value="1"><liferay-ui:message key="fahrenheit" /></option>
-			<option <%= !fahrenheit ? "selected" : "" %> value="1"><liferay-ui:message key="celsius" /></option>
+			<option <%= !fahrenheit ? "selected" : "" %> value="0"><liferay-ui:message key="celsius" /></option>
 		</select>
 	</td>
 </tr>
@@ -74,11 +74,11 @@ zipsString = StringUtil.merge(zips, StringPool.NEW_LINE);
 
 <br />
 
-<input type="button" value="SAve" onClick="submitForm(document.<portlet:namespace />fm);" />
+<input type="button" value="sAve" onClick="submitForm(document.<portlet:namespace />fm);" />
 
 </form>
 
-<c:if test="<%= windowState.equals(WindowState.MAXIMIZED) %>">
+<c:if test="<%= windowState.equals(WindowState.NORMAL) %>">
 	<aui:script>
 		Liferay.Util.focusFormField(document.<portlet:namespace />fm.<portlet:namespace />zips);
 	</aui:script>
